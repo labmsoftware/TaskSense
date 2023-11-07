@@ -2,4 +2,8 @@
 
 declare(strict_types = 1);
 
-(require_once __DIR__ . '/../config/bootstrap.php')->run();
+use Slim\App;
+
+$container = require_once __DIR__ . '/../config/bootstrap.php';
+
+($container->get(App::class))->run();

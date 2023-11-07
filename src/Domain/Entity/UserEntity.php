@@ -35,11 +35,12 @@ class UserEntity
     #[Column(type: 'string', nullable: true)]
     private string $family_name;
 
-    #[OneToMany(targetEntity: AuthTokenEntity::class, mappedBy: 'owner', orphanRemoval: true)]
-    private Collection $auth_tokens;
+    #[OneToMany(targetEntity: CustomerEntity::class, mappedBy: 'created_by', orphanRemoval: false)]
+    private Collection $customers;
 
     public function __construct()
     {
+        $this->customers = new ArrayCollection();
         $this->auth_tokens = new ArrayCollection();
     }
 

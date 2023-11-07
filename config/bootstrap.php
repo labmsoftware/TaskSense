@@ -23,4 +23,4 @@ if($settings->get('app_stream') === 'dev') {
     Debugger::enable();
 }
 
-return $container->get(App::class);
+return $container;
