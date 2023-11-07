@@ -21,11 +21,11 @@ final class CreateUserAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $credentials = new UserCredentialsObject(
-            'benjamin',
+            'louis',
             'hello',
-            'benmoss2002@fastmail.co.uk',
-            'Benjamin',
-            'Moss'
+            'louisalexander2002@hotmail.com',
+            'louis',
+            'lonsdale'
         );
 
         $this->auth->createUser($credentials);

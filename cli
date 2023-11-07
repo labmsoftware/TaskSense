@@ -1,0 +1,29 @@
+<?php
+
+use Doctrine\ORM\EntityManager;
+use App\Support\Settings\Settings;
+use Doctrine\Migrations\DependencyFactory;
+use Symfony\Component\Console\Application;
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
+use Doctrine\Migrations\Configuration\Migration\PhpFile;
+use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
+use Doctrine\ORM\Tools\Console\EntityManagerProvider\SingleManagerProvider;
+
+$container = require __DIR__ . '/config/bootstrap.php';
+$config = $container->get(Settings::class);
+
+$em = $container->get(EntityManager::class);
+$dependencyFactory = DependencyFactory::fromEntityManager(
+    new PhpFile(__DIR__ . '/config/migrations.php'),
+    new ExistingEntityManager($em)
+);
+
+$migrationCommands = require __DIR__ . '/config/commands/migrationCommands.php';
+
+$cli = new Application($config->get('app_name'), $config->get('app_version'));
+
+ConsoleRunner::addCommands($cli, new SingleManagerProvider($em));
+
+$cli->addCommands($migrationCommands($dependencyFactory));
+
+$cli->run(); 

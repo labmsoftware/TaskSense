@@ -21,7 +21,7 @@ return [
     'doctrine' => [
         'dev_mode' => true,
         'cache_dir' => __DIR__ . '/../var/cache/doctrine',
-        'entity_dir' => [
+        'entity_dirs' => [
             __DIR__ . '/../src/Domain/Entity'
         ],
         'connection' => [

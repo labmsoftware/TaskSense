@@ -7,6 +7,7 @@ use Slim\Routing\RouteCollectorProxy;
 use App\Http\Action\Auth\DoLoginAction;
 use App\Http\Action\Auth\ViewLoginAction;
 use App\Http\Action\Auth\DoSignpostAction;
+use App\Http\Action\User\CreateUserAction;
 
 return function(App $app) 
 {
