@@ -1,0 +1,1 @@
+This directory is for storing validation rule files.

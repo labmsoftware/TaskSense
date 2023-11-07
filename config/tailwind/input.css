@@ -1,0 +1,7 @@
+@import url('satoshi.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwindcss/forms;

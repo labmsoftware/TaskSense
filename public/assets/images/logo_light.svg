@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 256 256"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="logo_light.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="3.1914062"
+     inkscape:cx="124.2399"
+     inkscape:cy="126.11995"
+     inkscape:window-width="1920"
+     inkscape:window-height="1014"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <rect
+     width="256"
+     height="256"
+     fill="none"
+     id="rect1" />
+  <path
+     d="M 216,208 V 48 a 8,8 0 0 0 -8,-8 H 48 a 8,8 0 0 0 -8,8 v 160 a 8,8 0 0 0 8,8 h 160 a 8,8 0 0 0 8,-8 z M 72,88 A 16,16 0 1 1 88,104 16,16 0 0 1 72,88 Z m 64,80 a 16,16 0 1 1 16,16 16,16 0 0 1 -16,-16 z"
+     opacity="0.2"
+     id="path1" />
+  <circle
+     cx="86.957161"
+     cy="90.345001"
+     r="16"
+     fill="none"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-width="16"
+     id="circle1" />
+  <path
+     id="circle2"
+     style="fill:none;stroke:currentColor;stroke-width:16;stroke-linecap:round;stroke-linejoin:round"
+     d="m 170.54468,169.50183 a 16,16 0 0 1 -16,16 16,16 0 0 1 -16,-16 16,16 0 0 1 16,-16 16,16 0 0 1 16,16 z" />
+  <path
+     id="line2"
+     style="fill:none;stroke:currentColor;stroke-width:16;stroke-linecap:round;stroke-linejoin:round"
+     d="m 86.957164,169.50183 51.587516,0"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="line2-3"
+     style="fill:none;stroke:currentColor;stroke-width:16;stroke-linecap:round;stroke-linejoin:round"
+     d="M 154.54468,213.46756 V 185.50183"
+     sodipodi:nodetypes="cc" />
+  <path
+     id="line2-3-6"
+     style="fill:none;stroke:currentColor;stroke-width:16;stroke-linecap:round;stroke-linejoin:round"
+     d="M 86.957161,74.345001 V 46.379271"
+     sodipodi:nodetypes="cc" />
+  <rect
+     x="40"
+     y="40"
+     width="176"
+     height="176"
+     rx="8"
+     fill="none"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     stroke-width="16"
+     id="rect2" />
+  <path
+     id="polyline3"
+     transform="rotate(135,131.12035,80.755526)"
+     style="fill:none;stroke:currentColor;stroke-width:16;stroke-linecap:round;stroke-linejoin:round"
+     d="M 225.10155,49.230503 121.33763,57.41124 157.81551,93.889125"
+     sodipodi:nodetypes="ccc" />
+</svg>
