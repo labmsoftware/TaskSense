@@ -18,7 +18,6 @@ use App\Support\Settings\Settings;
 use Odan\Session\SessionInterface;
 use App\Domain\Service\UserService;
 use App\Authenticator\Authenticator;
-use App\Domain\Service\AuthenticatorService;
 use App\Handler\DefaultErrorHandler;
 use Monolog\Formatter\LineFormatter;
 use Slim\Middleware\ErrorMiddleware;
@@ -26,14 +25,17 @@ use Nyholm\Psr7\Factory\Psr17Factory;
 use Psr\Container\ContainerInterface;
 use Twig\Extension\ProfilerExtension;
 use Monolog\Handler\RotatingFileHandler;
+use Odan\Session\SessionManagerInterface;
 use Psr\Http\Message\UriFactoryInterface;
 use Slim\Interfaces\RouteParserInterface;
 use Selective\BasePath\BasePathMiddleware;
+use App\Domain\Service\AuthenticatorService;
 use Psr\Http\Message\StreamFactoryInterface;
 use Idmarinas\TracyPanel\Twig\TracyExtension;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\UploadedFileFactoryInterface;
 use Psr\Http\Message\ServerRequestFactoryInterface;
+use RobThree\Auth\TwoFactorAuth;
 
 return [
 
@@ -98,6 +100,8 @@ return [
         $settings = $c->get(Settings::class);
 
         Type::addType('uuid', 'Ramsey\Uuid\Doctrine\UuidType');
+        Type::addType('carbon', 'Carbon\Doctrine\CarbonType');
+        Type::addType('carbon_immutable', 'Carbon\Doctrine\CarbonImmutableType');
 
         $orm_config = ORMSetup::createAttributeMetadataConfiguration(
             (array) $settings->get('doctrine.entity_dirs'),
@@ -117,9 +121,22 @@ return [
         return new AuthenticatorService(
             $c->get(EntityManager::class),
             $c->get(SessionInterface::class),
+            $c->get(TwoFactorAuth::class),
             $c->get(LoggerInterface::class),
+            $settings->get('authenticator.tfa.qrCodePath'),
             $settings->get('authenticator.crypto.algo'),
             $settings->get('authenticator.crypto.options')
+        );
+    },
+
+    TwoFactorAuth::class => function(ContainerInterface $c) {
+        $settings = $c->get(Settings::class);
+
+        return new TwoFactorAuth(
+            $settings->get('authenticator.tfa.issuer'),
+            $settings->get('authenticator.tfa.digits'),
+            $settings->get('authenticator.tfa.period'),
+            $settings->get('authenticator.tfa.algo'),
         );
     },
 

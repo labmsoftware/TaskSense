@@ -2,6 +2,9 @@
 
 declare(strict_types = 1);
 
+use RobThree\Auth\Algorithm;
+use RobThree\Auth\Providers\Qr\BaconQrCodeProvider;
+
 return [
 
     // Application Configuration
@@ -21,7 +24,7 @@ return [
     'doctrine' => [
         'dev_mode' => true,
         'cache_dir' => __DIR__ . '/../var/cache/doctrine',
-        'entity_dir' => [
+        'entity_dirs' => [
             __DIR__ . '/../src/Domain/Entity'
         ],
         'connection' => [
@@ -36,7 +39,15 @@ return [
 
     // Authenticator Configuration
     'authenticator' => [
-        'enforce2fa' => false,
+        'tfa' => [
+            'enforce' => false,
+            'issuer' => 'zenRepair',
+            'digits' => 6,
+            'period' => 30,
+            'algo' => Algorithm::Sha1,
+            'qrCodeProvider' => BaconQrCodeProvider::class,
+            'qrCodePath' => __DIR__ . '/../app/qrcodes'
+        ],
         'crypto' => [
             'pepper' => $_ENV['CRYPT_PEPPER'],
             'algo' => PASSWORD_ARGON2ID,

@@ -25,12 +25,17 @@ final class RedirectRenderer
      * 
      * @return ResponseInterface
      */
-    public function redirect(ResponseInterface $response, string $dest, array $queryParams): ResponseInterface
+    public function redirect(ResponseInterface $response, string $dest, array $queryParams = []): ResponseInterface
     {
         if($queryParams) {
             $dest = sprintf('%s?%s', $dest, http_build_query($queryParams));
         }
 
         return $response->withStatus(302)->withHeader('Location', $dest);
+    }
+
+    public function hxRedirect(ResponseInterface $response, string $dest): ResponseInterface
+    {
+        return $response->withStatus(302)->withHeader('HX-Location', $dest);
     }
 }
