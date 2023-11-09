@@ -1,6 +1,6 @@
 {
-    "name": "kxpler442/zenrepair",
-    "description": "A repair shop management system written in PHP using HTMX and HyperScript.",
+    "name": "labmsoftware/tasksense",
+    "description": "A webapp to help people with ADHD prioritise tasks.",
     "type": "project",
     "license": "MIT",
     "autoload": {
@@ -10,6 +10,9 @@
     },
     "authors": [
         {
+            "name": "Louis Lonsdale",
+            "email": "louisalexander2002@hotmail.com",
+
             "name": "Benjamin Moss",
             "email": "benmoss2002@fastmail.co.uk"
         }
