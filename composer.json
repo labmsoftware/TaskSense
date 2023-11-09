@@ -45,6 +45,7 @@
     "require-dev": {
         "phpunit/phpunit": "^10.4",
         "tracy/tracy": "^2.10",
-        "idmarinas/tracy-twig-bar": "^0.3.1"
+        "idmarinas/tracy-twig-bar": "^0.3.1",
+        "selective/test-traits": "^4.1"
     }
 }
