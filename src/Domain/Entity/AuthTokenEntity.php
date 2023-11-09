@@ -12,6 +12,7 @@ use App\Domain\Trait\HasUuidTrait;
 use Doctrine\ORM\Mapping\ManyToOne;
 use App\Domain\Trait\HasCreatedUpdatedTrait;
 use App\Domain\Repository\AuthTokenRepository;
+use Carbon\Carbon;
 
 #[Entity(repositoryClass: AuthTokenRepository::class)]
 #[Table(name: 'auth_tokens')]
@@ -19,26 +20,11 @@ class AuthTokenEntity
 {
     use HasUuidTrait, HasCreatedUpdatedTrait;
 
-    #[Column(type: 'string', length: 64)]
-    private string $hash;
-
-    #[ManyToOne(targetEntity: UserEntity::class, inversedBy: 'auth_tokens', cascade: ['PERSIST', 'MERGE', 'REMOVE'])]
+    #[ManyToOne(targetEntity: UserEntity::class, inversedBy: 'auth_tokens', cascade: ['PERSIST', 'MERGE'])]
     private UserEntity $owner;
 
-    #[Column(type: 'datetime', updatable: false)]
-    private DateTime $expires;
-
-    public function getHash(): string
-    {
-        return $this->hash;
-    }
-
-    public function setHash(string $hash): self
-    {
-        $this->hash = $hash;
-
-        return $this;
-    }
+    #[Column(type: 'carbon', updatable: false)]
+    private Carbon $expires;
 
     public function getOwner(): UserEntity
     {
