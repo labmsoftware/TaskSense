@@ -1,3 +1,4 @@
 /vendor
 app.env
 /var
+/node_modules
