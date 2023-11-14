@@ -16,15 +16,17 @@ class ListRepository extends EntityRepository
 
         $list = (new ListEntity())
         ->setTitle($data->title)
-        ->setOwner($data->owner)
-        ->setTasks($data->tasks);
+        ->setOwner($data->ownerId)
+        ->setTasks($data->tasks)
+        ->setCreated($dt)
+        ->setUpdated($dt);
 
         return $list;
     }
 
     public function save(ListEntity $list) : void 
     {
-        $this->_em->persist($list)   ;
+        $this->_em->persist($list);
         
         $this->_em->flush();
     }

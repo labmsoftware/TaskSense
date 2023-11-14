@@ -34,7 +34,7 @@ return function(App $app)
 
     $app->get('/dashboard', ViewDashboardAction::class)->add(AuthMiddleware::class);
 
-    $app->group('/action', function(RouteCollectorProxy $action) {
+    $app->group('/actions', function(RouteCollectorProxy $action) {
         $action->post('/add_new_task', DoAddTaskAction::class);
     });
 };

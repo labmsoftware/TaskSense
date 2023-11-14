@@ -4,20 +4,22 @@ declare(strict_types = 1);
 
 namespace App\Domain\XferObject;
 
+use App\Domain\Entity\UserEntity;
+
 class ListObject
 {
     public string $title;
-    public string $owner;
+    public ?UserEntity $ownerId;
     public ?array $tasks;
-// Dont forget to set email in prod
+
     public function __construct(
         string $title,
-        string $owner,
+        UserEntity $ownerId = null,
         array $tasks = null
     )
     {
         $this->title = $title;
-        $this->owner = $owner;
+        $this->ownerId = $ownerId;
         $this->tasks = $tasks;
     }
 }
