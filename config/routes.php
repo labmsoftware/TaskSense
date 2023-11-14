@@ -11,6 +11,7 @@ use App\Http\Action\Auth\ViewLoginAction;
 use App\Http\Action\Auth\DoSignpostAction;
 use App\Http\Action\Auth\DoTfaLoginAction;
 use App\Http\Action\User\CreateUserAction;
+use App\Http\Action\Actions\DoAddTaskAction;
 use App\Http\Action\Auth\ViewTfaLoginAction;
 use App\Http\Action\Dashboard\ViewDashboardAction;
 
@@ -32,4 +33,8 @@ return function(App $app)
     });
 
     $app->get('/dashboard', ViewDashboardAction::class)->add(AuthMiddleware::class);
+
+    $app->group('/action', function(RouteCollectorProxy $action) {
+        $action->post('/add_new_task', DoAddTaskAction::class);
+    });
 };

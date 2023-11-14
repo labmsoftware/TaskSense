@@ -1,3 +1,26 @@
-/vendor
+# Environment Variable Files
 app.env
-/var
+
+# Docker container files
+!/resources/docker/.gitkeep
+/resources/docker/*.env
+
+# Permanent application storage
+!/app/qrcodes/.gitkeep
+/app/qrcodes/*
+
+# Temporary application storage
+!/var/cache/.gitkeep
+/var/cache/*
+!/var/log/.gitkeep
+/var/log*
+
+# Doctrine migrations and seeds
+!/resources/migrations/.gitkeep
+!/resources/seeds/.gitkeep
+
+# Managed by Composer
+/vendor/
+
+# Managed by NPM
+/node_modules/
